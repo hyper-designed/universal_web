@@ -37,7 +37,7 @@ class UniversalWeb {
   }
 
   /// Returns the operating system where the application is running.
-  OperatingSystem get operatingSystem {
+  static OperatingSystem get operatingSystem {
     final ua = userAgent.toLowerCase();
 
     if (ua.contains('windows')) {
