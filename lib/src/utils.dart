@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:universal_web/universal_web.dart';
+
+import 'universal_web_io.dart'
+    if (dart.library.js_interop) 'universal_web_web.dart';
 
 /// Represents rendering engine for web platform.
 enum WebRenderer {
