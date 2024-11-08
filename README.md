@@ -27,6 +27,9 @@ import 'package:universal_web/universal_web.dart';
 void main() {
   print(UniversalWeb.platform); // Platform.web
   print(UniversalWeb.operatingSystem); // OperatingSystem.macos
+  // OR
+  print(Platform.current); // Platform.web
+  print(OperatingSystem.current); // OperatingSystem.macos
 }
 ```
 
