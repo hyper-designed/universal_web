@@ -11,20 +11,20 @@ enum WebRenderer {
   /// Converts the [WebRenderer] to [Platform].
   Platform toPlatform() => switch (this) {
         canvasKit => Platform.webCanvasKit,
-        html => Platform.webHtml,
+        html => Platform.webHTML,
       };
 }
 
 /// Represents the platform where the application is running.
 enum Platform {
   android('Android'),
-  ios('iOS'),
+  iOS('iOS'),
   linux('Linux'),
-  macos('macOS'),
+  macOS('macOS'),
   windows('Windows'),
   fuchsia('Fuchsia'),
   webWasm('Web Wasm'),
-  webHtml('Web HTML'),
+  webHTML('Web HTML'),
   webCanvasKit('Web CanvasKit');
 
   const Platform(this.label);
@@ -38,23 +38,23 @@ enum Platform {
 
   static bool get isAndroid => UniversalWeb.platform == Platform.android;
 
-  static bool get isIOS => UniversalWeb.platform == Platform.ios;
+  static bool get isIOS => UniversalWeb.platform == Platform.iOS;
 
   static bool get isLinux => UniversalWeb.platform == Platform.linux;
 
-  static bool get isMacOS => UniversalWeb.platform == Platform.macos;
+  static bool get isMacOS => UniversalWeb.platform == Platform.macOS;
 
   static bool get isWindows => UniversalWeb.platform == Platform.windows;
 
   static bool get isWebWasm => UniversalWeb.platform == Platform.webWasm;
 
-  static bool get isWebHtml => UniversalWeb.platform == Platform.webHtml;
+  static bool get isWebHTML => UniversalWeb.platform == Platform.webHTML;
 
   static bool get isWebCanvasKit =>
       UniversalWeb.platform == Platform.webCanvasKit;
 
   /// Returns `true` if the platform is web.
-  static bool get isWeb => isWebWasm || isWebHtml || isWebCanvasKit;
+  static bool get isWeb => isWebWasm || isWebHTML || isWebCanvasKit;
 
   /// Returns `true` if the platform is desktop.
   static bool get isDesktop => isLinux || isMacOS || isWindows;
@@ -74,10 +74,11 @@ extension TargetPlatformExt on TargetPlatform {
 /// Represents the operating system where the application is running.
 enum OperatingSystem {
   android('Android'),
-  ios('iOS'),
+  iOS('iOS'),
   linux('Linux'),
-  macos('macOS'),
+  macOS('macOS'),
   windows('Windows'),
+  fuchsia('Fuchsia'),
   unknown('Unknown');
 
   const OperatingSystem(this.label);
@@ -87,7 +88,7 @@ enum OperatingSystem {
   /// Returns the operating system from the given string value.
   static OperatingSystem fromString(String value) {
     return OperatingSystem.values.firstWhere(
-      (e) => e.toString().toLowerCase() == value.toLowerCase(),
+      (e) => e.name.toString().toLowerCase() == value.toLowerCase(),
       orElse: () => OperatingSystem.unknown,
     );
   }
