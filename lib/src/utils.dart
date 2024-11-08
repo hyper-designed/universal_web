@@ -23,7 +23,7 @@ enum Platform {
   macos('macOS'),
   windows('Windows'),
   fuchsia('Fuchsia'),
-  wasm('Wasm'),
+  webWasm('Web Wasm'),
   webHtml('Web HTML'),
   webCanvasKit('Web CanvasKit');
 
@@ -46,7 +46,7 @@ enum Platform {
 
   static bool get isWindows => UniversalWeb.platform == Platform.windows;
 
-  static bool get isWasm => UniversalWeb.platform == Platform.wasm;
+  static bool get isWebWasm => UniversalWeb.platform == Platform.webWasm;
 
   static bool get isWebHtml => UniversalWeb.platform == Platform.webHtml;
 
@@ -54,7 +54,7 @@ enum Platform {
       UniversalWeb.platform == Platform.webCanvasKit;
 
   /// Returns `true` if the platform is web.
-  static bool get isWeb => isWasm || isWebHtml || isWebCanvasKit;
+  static bool get isWeb => isWebWasm || isWebHtml || isWebCanvasKit;
 
   /// Returns `true` if the platform is desktop.
   static bool get isDesktop => isLinux || isMacOS || isWindows;

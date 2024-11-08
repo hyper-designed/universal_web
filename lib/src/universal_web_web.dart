@@ -32,7 +32,7 @@ class UniversalWeb {
 
   /// Returns the platform where the application is running.
   static Platform get platform {
-    if (kIsWeb) return kIsWasm ? Platform.wasm : renderer.toPlatform();
+    if (kIsWeb) return kIsWasm ? Platform.webWasm : renderer.toPlatform();
     return defaultTargetPlatform.toPlatform();
   }
 
