@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 import 'universal_web_io.dart'
     if (dart.library.js_interop) 'universal_web_web.dart';

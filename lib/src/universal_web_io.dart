@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:universal_web/src/utils.dart';
+
+import 'utils.dart';
 
 /// Stub class for web.
 class UniversalWeb {
