@@ -6,7 +6,7 @@ import 'package:web/web.dart';
 import 'utils.dart';
 
 @JS('window.navigator.userAgent')
-external String get userAgent;
+external String get ua;
 
 @JS('window.flutterCanvasKit')
 external JSObject? get canvasKit;
@@ -36,24 +36,9 @@ class UniversalWeb {
     return defaultTargetPlatform.toPlatform();
   }
 
-  /// Returns the operating system where the application is running.
-  static OperatingSystem get operatingSystem {
-    final ua = userAgent.toLowerCase();
+  static String get userAgent => ua;
 
-    if (ua.contains('windows')) {
-      return OperatingSystem.windows;
-    } else if (ua.contains('mac os') || ua.contains('macintosh')) {
-      return OperatingSystem.macos;
-    } else if (ua.contains('linux')) {
-      return OperatingSystem.linux;
-    } else if (ua.contains('android')) {
-      return OperatingSystem.android;
-    } else if (ua.contains('iphone') ||
-        ua.contains('ipad') ||
-        ua.contains('ipod')) {
-      return OperatingSystem.ios;
-    } else {
-      return OperatingSystem.unknown;
-    }
-  }
+  /// Returns the operating system where the application is running.
+  static OperatingSystem get operatingSystem =>
+      defaultTargetPlatform.toOperatingSystem();
 }

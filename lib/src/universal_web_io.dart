@@ -19,6 +19,8 @@ class UniversalWeb {
   /// identical to the platform except for web.
   static Platform get platform => defaultTargetPlatform.toPlatform();
 
+  static String get userAgent => 'unknown';
+
   /// Returns the operating system where the application is running. This
   /// will be identical to the platform except for web.
   static OperatingSystem get operatingSystem =>
