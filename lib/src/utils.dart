@@ -34,7 +34,8 @@ enum Platform {
   static Platform get current => UniversalWeb.platform;
 
   /// Returns the platform from the given string value.
-  static Platform fromString(String value) => Platform.values.byName(value);
+  static Platform fromString(String value) => Platform.values.firstWhere(
+      (platform) => platform.name.toLowerCase() == value.toLowerCase());
 
   static bool get isAndroid => UniversalWeb.platform == Platform.android;
 
@@ -88,7 +89,7 @@ enum OperatingSystem {
   /// Returns the operating system from the given string value.
   static OperatingSystem fromString(String value) {
     return OperatingSystem.values.firstWhere(
-      (e) => e.name.toString().toLowerCase() == value.toLowerCase(),
+      (os) => os.name.toLowerCase() == value.toLowerCase(),
       orElse: () => OperatingSystem.unknown,
     );
   }
